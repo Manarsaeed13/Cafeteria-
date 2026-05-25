@@ -18,10 +18,13 @@
 
 
 
+
+
+   <?php require 'partions/footer.php' ?>
     <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
 
 </body>
-  <?php require 'partions/footer.php' ?>
+
 </html>
