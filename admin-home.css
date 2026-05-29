@@ -50,3 +50,35 @@ html, body {
   border-color: #0D530E !important;
   transform: translateY(-2px);
 }
+
+.custom-cart-table {
+  table-layout: fixed !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+.custom-cart-table td {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  vertical-align: middle !important;
+}
+
+.cart-name-col {
+  width: 35% !important;
+  text-align: left !important;
+}
+
+.cart-control-col {
+  width: 35% !important;
+  text-align: center !important;
+}
+
+.cart-price-col {
+  width: 22% !important;
+  text-align: right !important;
+}
+
+.cart-remove-col {
+  width: 8% !important;
+  text-align: right !important;
+}

@@ -10,7 +10,8 @@
 </head>
 <body>
 
-<div id="navbar-placeholder"></div>
+
+<?php include 'partions/admin-navbar.html'; ?>
 
 <div class="container-fluid px-4 px-md-5 my-5">
   <div class="row g-5">

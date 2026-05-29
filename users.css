@@ -1,0 +1,93 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #FBF5DD;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-main-title {
+  color: #0D530E; }
+
+.btn-add-user {
+  color: #0D530E !important;
+  border: 1px solid rgba(13, 83, 14, 0.3) !important;
+  border-radius: 10px !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-add-user:hover {
+  background-color: #0D530E !important;
+  color: #FBF5DD !important;
+  transform: translateY(-1px);
+}
+
+.users-card {
+  background: rgba(255, 255, 255, 0.4) !important; 
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+.table thead {
+  border-bottom: 2px solid rgba(13, 83, 14, 0.12) !important;
+}
+
+.table th {
+  color: #0D530E !important;
+}
+
+.user-name-cell {
+  color: #2b2b2b;
+}
+
+.user-table-img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.action-btn {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease;
+  border: none !important;
+}
+
+.btn-edit {
+  color: #0D530E !important;
+  background: rgba(13, 83, 14, 0.08) !important;
+}
+
+.btn-edit:hover {
+  background-color: #0D530E !important;
+  color: #FBF5DD !important;
+}
+
+.btn-delete {
+  color: #dc3545 !important;
+  background: rgba(220, 53, 69, 0.08) !important;
+}
+
+.btn-delete:hover {
+  background-color: #dc3545 !important;
+  color: #ffffff !important;
+}
+
+.page-number-btn, .pagination-arrow {
+  transition: all 0.2s ease-in-out;
+}
+
+.active-page {
+  background-color: #0D530E !important;
+  color: #FBF5DD !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 10px rgba(13, 83, 14, 0.15);
+}
+
+.pagination .page-link:hover:not(.active-page) {
+  background-color: rgba(13, 83, 14, 0.08) !important;
+  color: #0D530E !important;
+}

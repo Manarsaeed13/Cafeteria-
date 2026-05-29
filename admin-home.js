@@ -1,8 +1,8 @@
+
 let cart = [];
 let allProducts = []; 
 
 document.addEventListener("DOMContentLoaded", () => {
-  
   fetch('partions/admin-navbar.html')
     .then(response => {
       if (!response.ok) throw new Error('Navbar file not found');
@@ -44,16 +44,13 @@ function setupSearch() {
 
   searchInput.addEventListener('input', (e) => {
     const searchTerm = e.target.value.toLowerCase().trim();
-    
     const filteredProducts = allProducts.filter(product => 
       product.name.toLowerCase().includes(searchTerm)
     );
-    
     displayProducts(filteredProducts);
   });
 }
 
-// دالة عرض المنتجات ومسح التكرار وحل مشكلة الرعشة
 function displayProducts(products) {
   const container = document.getElementById('products-container');
   if (!container) return;
@@ -68,15 +65,11 @@ function displayProducts(products) {
     const productHtml = `
       <div class="col">
         <div class="product-item text-center p-3 position-relative border rounded-3 bg-white shadow-sm" style="cursor: pointer;" onclick="addToCart('${product.name}', ${product.price})">
-          
           <div class="img-wrapper d-flex align-items-center justify-content-center mx-auto mb-3 rounded-circle bg-light border" style="width: 80px; height: 80px; overflow: hidden;">
             <img src="${product.image}" alt="${product.name}" class="img-fluid w-100 h-100 object-fit-cover" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/51c/51c554.png';">
           </div>
-          
           <span class="badge bg-success position-absolute top-0 end-0 m-2 px-2 py-1 fs-7 rounded-pill">${product.price} LE</span>
-          
           <p class="product-name fw-bold text-dark mb-0 mt-2">${product.name}</p>
-          
         </div>
       </div>
     `;
@@ -117,7 +110,7 @@ function updateCartUI() {
   if (!cartContainer || !totalPriceElement) return;
 
   if (cart.length === 0) {
-    cartContainer.innerHTML = `<p class="text-muted text-center py-4">No items added yet.</p>`;
+    cartContainer.innerHTML = `<tr><td colspan="4" class="text-muted text-center py-4">No items added yet.</td></tr>`;
     totalPriceElement.innerText = "0";
     return;
   }
@@ -130,16 +123,20 @@ function updateCartUI() {
     total += itemTotal;
     
     html += `
-      <div class="cart-item d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
-        <span class="item-name fw-bold" style="min-width: 70px;">${item.name}</span>
-        <div class="d-flex align-items-center gap-2">
-          <button class="btn btn-sm bg-danger text-white fw-bold" style="width:28px; height:28px; padding:0; border-radius:6px;" onclick="changeQuantity('${item.name}', -1)">-</button>
-          <span class="fw-bold fs-5 px-1">${item.quantity}</span>
-          <button class="btn btn-sm bg-success text-white fw-bold" style="width:28px; height:28px; padding:0; border-radius:6px;" onclick="changeQuantity('${item.name}', 1)">+</button>
-        </div>
-        <span class="fw-bold text-success">${itemTotal} EGP</span>
-        <button class="btn text-danger fw-bold bg-transparent border-0" onclick="removeFromCart('${item.name}')">X</button>
-      </div>
+      <tr class="border-bottom">
+        <td class="cart-name-col text-start fw-bold ps-0">${item.name}</td>
+        <td class="cart-control-col text-center">
+          <div class="d-inline-flex align-items-center justify-content-center gap-2">
+            <button class="btn btn-sm bg-danger text-white fw-bold" style="width:28px; height:28px; padding:0; border-radius:6px;" onclick="changeQuantity('${item.name}', -1)">-</button>
+            <span class="fw-bold fs-5 px-1">${item.quantity}</span>
+            <button class="btn btn-sm bg-success text-white fw-bold" style="width:28px; height:28px; padding:0; border-radius:6px;" onclick="changeQuantity('${item.name}', 1)">+</button>
+          </div>
+        </td>
+        <td class="cart-price-col text-end fw-bold text-success">${itemTotal} EGP</td>
+        <td class="cart-remove-col text-end pe-0">
+          <button class="btn text-danger fw-bold bg-transparent border-0 p-0" onclick="removeFromCart('${item.name}')">X</button>
+        </td>
+      </tr>
     `;
   });
   
