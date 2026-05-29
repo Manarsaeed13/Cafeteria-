@@ -12,150 +12,45 @@
 
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f1ed;
-    }
-
-
-    .custom-navbar {
-      background: #FBF5DD;
-      border-radius: 20px;
-      padding: 12px 24px;
-      border: 1px solid rgba(48, 109, 41, 0.2);
+      font-family: 'Segoe UI', sans-serif !important;
+      background: #FBF5DD !important;
     }
 
     a {
       text-decoration: none !important;
     }
 
+    .custom-navbar {
+      background-color: #0D530E !important;
+      background: #0D530E !important;
+      border-radius: 20px !important;
+      padding: 12px 24px !important;
+      border: 1px solid rgba(251, 245, 221, 0.2) !important;
+    }
+
     .menu-toggle-btn {
-      background: transparent;
-      border: none;
-      color: #0D530E;
-      font-size: 26px;
-      padding: 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      transition: transform 0.2s ease;
+      background: transparent !important;
+      border: none !important;
+      color: #FBF5DD !important;
+      font-size: 26px !important;
+      padding: 0 !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      transition: transform 0.2s ease !important;
     }
 
     .menu-toggle-btn:hover {
-      transform: scale(1.05);
-      color: #306D29;
+      transform: scale(1.05) !important;
+      color: #ffffff !important;
     }
-
 
     .brand {
-      font-weight: 800;
-      font-size: 22px;
-      color: #0D530E;
-      text-decoration: none;
-    }
-
-    .nav-links-desktop {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-link-custom {
-      text-decoration: none;
-      color: #0D530E;
-      font-weight: 700;
-      font-size: 15px;
-      position: relative;
-      padding: 8px 16px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-link-custom:hover {
-      color: #306D29;
-    }
-
-    .nav-link-custom.active::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 16px;
-      right: 16px;
-      height: 3px;
-      background: #306D29;
-      border-radius: 10px;
-    }
-
-
-    .login-btn {
-      background-color: #0D530E;
+      font-weight: 800 !important;
+      font-size: 22px !important;
       color: #FBF5DD !important;
-      font-weight: 700;
-      padding: 10px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: all 0.2s ease;
+      text-decoration: none !important;
     }
-
-    .login-btn:hover {
-      background-color: #306D29;
-      box-shadow: 0 4px 12px rgba(13, 83, 14, 0.2);
-    }
-
-    .custom-sidebar {
-      background-color: #FBF5DD !important;
-      border-right: 2px solid rgba(48, 109, 41, 0.15);
-      width: 300px !important;
-    }
-
-    .sidebar-header {
-      border-bottom: 1px solid rgba(48, 109, 41, 0.1);
-      padding: 20px;
-    }
-
-    .sidebar-link {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      text-decoration: none;
-      color: #0D530E;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 14px 20px;
-      border-radius: 12px;
-      margin-bottom: 8px;
-      transition: all 0.2s ease;
-    }
-
-    .sidebar-link:hover,
-    .sidebar-link.active {
-      background-color: #0D530E;
-      color: #FBF5DD;
-    }
-
-    .sidebar-admin-box {
-      margin-top: auto;
-      border-top: 1px solid rgba(48, 109, 41, 0.1);
-      padding-top: 20px;
-    }
-
-    .admin-img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid #0D530E;
-    }
-
-    .admin-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #0D530E;
-    }
-
-    .admin-role {
-      font-size: 12px;
-      color: gray;
-    }
-
 
     .brand,
     .brand:focus,
@@ -164,7 +59,186 @@
       outline: none !important;
       box-shadow: none !important;
       text-decoration: none !important;
+    }
+
+    .nav-links-desktop {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+    }
+
+    .nav-link-custom {
+      text-decoration: none !important;
+      color: rgba(251, 245, 221, 0.7) !important;
+      font-weight: 700 !important;
+      font-size: 15px !important;
+      position: relative !important;
+      padding: 8px 16px !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .nav-link-custom:hover,
+    .nav-link-custom.active {
+      color: #FBF5DD !important;
+    }
+
+    .nav-link-custom.active::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: -4px !important;
+      left: 16px !important;
+      right: 16px !important;
+      height: 3px !important;
+      background-color: #FBF5DD !important;
+      border-radius: 10px !important;
+    }
+
+    .login-btn {
+      background-color: #FBF5DD !important;
+      background: #FBF5DD !important;
       color: #0D530E !important;
+      font-weight: 700 !important;
+      padding: 10px 24px !important;
+      border-radius: 30px !important;
+      display: inline-block !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .login-btn:hover {
+      background-color: #ffffff !important;
+      background: #ffffff !important;
+      color: #0D530E !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .custom-sidebar {
+      background-color: #FBF5DD !important;
+      background: #FBF5DD !important;
+      border-right: 2px solid rgba(48, 109, 41, 0.15) !important;
+      width: 300px !important;
+    }
+
+    .sidebar-header {
+      border-bottom: 1px solid rgba(48, 109, 41, 0.1) !important;
+      padding: 20px !important;
+    }
+
+    .custom-sidebar .brand {
+      color: #0D530E !important;
+    }
+
+    .sidebar-link {
+      display: flex !important;
+      align-items: center !important;
+      gap: 15px !important;
+      text-decoration: none !important;
+      color: #0D530E !important;
+      font-weight: 700 !important;
+      font-size: 16px !important;
+      padding: 14px 20px !important;
+      border-radius: 12px !important;
+      margin-bottom: 8px !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      background-color: #0D530E !important;
+      background: #0D530E !important;
+      color: #FBF5DD !important;
+    }
+
+    .sidebar-admin-box {
+      margin-top: auto !important;
+      border-top: 1px solid rgba(48, 109, 41, 0.1) !important;
+      padding-top: 20px !important;
+    }
+
+    .admin-img {
+      width: 50px !important;
+      height: 50px !important;
+      object-fit: cover !important;
+      border-radius: 10px !important;
+      border: 2px solid #0D530E !important;
+    }
+
+    .admin-name {
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      color: #0D530E !important;
+    }
+
+    .admin-role {
+      font-size: 12px !important;
+      color: gray !important;
+    }
+
+    .order-card,
+    .menu-card {
+      background: rgba(255, 255, 255, 0.4) !important;
+      border-radius: 16px !important;
+    }
+
+    @media (min-width: 992px) {
+      .border-divider {
+        border-right: 2px solid rgba(13, 83, 14, 0.12) !important;
+      }
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 10px !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #0D530E !important;
+      box-shadow: 0 0 0 0.25rem rgba(13, 83, 14, 0.15) !important;
+    }
+
+    .confirm-btn {
+      background-color: #0D530E !important;
+      color: #FBF5DD !important;
+      border: none !important;
+      border-radius: 12px !important;
+      font-weight: 700 !important;
+      transition: all 0.2s ease-in-out !important;
+    }
+
+    .confirm-btn:hover {
+      background-color: #306D29 !important;
+      box-shadow: 0 4px 12px rgba(13, 83, 14, 0.2) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .product-item {
+      transition: all 0.2s ease-in-out;
+    }
+
+    .product-item:hover {
+      border-color: #0D530E !important;
+      transform: translateY(-2px);
+    }
+
+    .custom-cart-table {
+      table-layout: fixed !important;
+      width: 100% !important;
+      border-collapse: collapse !important;
+    }
+
+    .custom-cart-table td {
+      padding: 12px 4px !important;
+      vertical-align: middle !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    }
+
+    .cart-btn-wrapper {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
     }
   </style>
 </head>
