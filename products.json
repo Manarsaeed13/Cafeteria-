@@ -83,7 +83,6 @@
     "price": 32,
     "image": "images/Mango_juice_in_an_elegant_202605292052.jpeg"
   },
-  
   {
     "id": 15,
     "name": "Passion Fruit Mojito",
@@ -99,13 +98,15 @@
   {
     "id": 17,
     "name": "Water",
-    "price": 10,
+    "price": 15,
     "image": "images/A_clear_water_glass_with_202605292200.jpeg"
   },
+  
   {
     "id": 18,
     "name": "Cola",
     "price": 20,
     "image": "images/A_glass_of_cola_with_202605292145.jpeg"
+
   }
 ]

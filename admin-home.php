@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cafeteria Order System</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="admin-home.css">
+  <title>Cafeteria</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" crossorigin="anonymous">
+  <link class="styles" rel="stylesheet" href="admin-home.css">
 </head>
 <body>
-
 
 <?php include 'partions/admin-navbar.html'; ?>
 
@@ -20,9 +19,16 @@
       <div class="card order-card p-4 shadow-sm border-0">
         <h3 class="section-title mb-4 fw-bold">Current Order</h3>
         
-        <div id="cart-items" class="flex-grow-1">
-          <p class="text-muted text-center py-4">No items added yet.</p>
+        <div class="table-responsive flex-grow-1" style="max-height: 350px; overflow-y: auto;">
+          <table class="table table-borderless align-middle mb-0">
+            <tbody id="cart-items">
+              <tr>
+                <td colspan="4" class="text-muted text-center py-4">No items added yet.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        
         <div id="cart-warning" class="text-danger fw-bold small mt-1 d-none">Please add at least one product to your order!</div>
 
         <hr class="my-4">
@@ -88,7 +94,7 @@
   </div>
 </div>
 
-<div id="footer-placeholder"></div>
+<?php include 'partions/footer.html'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="admin-home.js"></script>

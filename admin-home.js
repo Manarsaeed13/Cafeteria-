@@ -1,41 +1,25 @@
-
 let cart = [];
 let allProducts = []; 
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('partions/admin-navbar.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Navbar file not found');
-      return response.text();
-    })
-    .then(data => {
-      const nvPlaceholder = document.getElementById('navbar-placeholder');
-      if (nvPlaceholder) nvPlaceholder.innerHTML = data;
-    })
-    .catch(err => console.error(err));
+  const uniqueId = new Date().getTime();
 
-  fetch('partions/footer.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Footer file not found');
-      return response.text();
-    })
-    .then(data => {
-      const ftPlaceholder = document.getElementById('footer-placeholder');
-      if (ftPlaceholder) ftPlaceholder.innerHTML = data;
-    })
-    .catch(err => console.error(err));
+  fetch(`./products.json?v=${uniqueId}`, { cache: "no-store" })
+  .then(response => {
+    if (!response.ok) throw new Error('Products JSON file not found');
+    return response.json();
+  })
+  .then(products => {
+    console.log(products);
+    console.log("Count:", products.length);
 
-  fetch('products.json')
-    .then(response => {
-      if (!response.ok) throw new Error('Products JSON file not found');
-      return response.json();
-    })
-    .then(products => {
-      allProducts = products;
-      displayProducts(allProducts);
-      setupSearch();
-    })
-    .catch(error => console.error(error));
+    allProducts = products;
+    displayProducts(allProducts);
+    setupSearch();
+  })
+  .catch(error => {
+    console.error(error);
+  });
 });
 
 function setupSearch() {
@@ -64,7 +48,7 @@ function displayProducts(products) {
   products.forEach(product => {
     const productHtml = `
       <div class="col">
-        <div class="product-item text-center p-3 position-relative border rounded-3 bg-white shadow-sm" style="cursor: pointer;" onclick="addToCart('${product.name}', ${product.price})">
+        <div class="product-item text-center p-3 position-relative border rounded-3 bg-white shadow-sm" style="cursor: pointer;" onclick="addToCartById(${product.id})">
           <div class="img-wrapper d-flex align-items-center justify-content-center mx-auto mb-3 rounded-circle bg-light border" style="width: 80px; height: 80px; overflow: hidden;">
             <img src="${product.image}" alt="${product.name}" class="img-fluid w-100 h-100 object-fit-cover" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/51c/51c554.png';">
           </div>
@@ -77,30 +61,33 @@ function displayProducts(products) {
   });
 }
 
-function addToCart(name, price) {
-  const existingItem = cart.find(item => item.name === name);
+function addToCartById(id) {
+  const product = allProducts.find(p => p.id === id);
+  if (!product) return;
+
+  const existingItem = cart.find(item => item.id === id);
   if (existingItem) {
     existingItem.quantity++;
   } else {
-    cart.push({ name: name, price: price, quantity: 1 });
+    cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
   }
   updateCartUI();
 }
 
-function changeQuantity(name, amount) {
-  const item = cart.find(item => item.name === name);
+function changeQuantityById(id, amount) {
+  const item = cart.find(item => item.id === id);
   if (item) {
     item.quantity += amount;
     if (item.quantity <= 0) {
-      removeFromCart(name);
+      removeFromCartById(id);
       return;
     }
   }
   updateCartUI();
 }
 
-function removeFromCart(name) {
-  cart = cart.filter(item => item.name !== name);
+function removeFromCartById(id) {
+  cart = cart.filter(item => item.id !== id);
   updateCartUI();
 }
 
@@ -123,18 +110,22 @@ function updateCartUI() {
     total += itemTotal;
     
     html += `
-      <tr class="border-bottom">
-        <td class="cart-name-col text-start fw-bold ps-0">${item.name}</td>
-        <td class="cart-control-col text-center">
-          <div class="d-inline-flex align-items-center justify-content-center gap-2">
-            <button class="btn btn-sm bg-danger text-white fw-bold" style="width:28px; height:28px; padding:0; border-radius:6px;" onclick="changeQuantity('${item.name}', -1)">-</button>
-            <span class="fw-bold fs-5 px-1">${item.quantity}</span>
-            <button class="btn btn-sm bg-success text-white fw-bold" style="width:28px; height:28px; padding:0; border-radius:6px;" onclick="changeQuantity('${item.name}', 1)">+</button>
+      <tr class="border-bottom align-middle">
+        <td class="text-start fw-bold py-3 text-nowrap" style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">
+          ${item.name}
+        </td>
+        <td class="text-center py-3">
+          <div class="d-inline-flex align-items-center justify-content-center gap-2 bg-light p-1 rounded-3 border">
+            <button class="btn btn-sm bg-danger text-white fw-bold d-flex align-items-center justify-content-center" style="width:24px; height:24px; padding:0; border-radius:5px;" onclick="changeQuantityById(${item.id}, -1)">-</button>
+            <span class="fw-bold px-1" style="min-width: 20px; text-align: center;">${item.quantity}</span>
+            <button class="btn btn-sm bg-success text-white fw-bold d-flex align-items-center justify-content-center" style="width:24px; height:24px; padding:0; border-radius:5px;" onclick="changeQuantityById(${item.id}, 1)">+</button>
           </div>
         </td>
-        <td class="cart-price-col text-end fw-bold text-success">${itemTotal} EGP</td>
-        <td class="cart-remove-col text-end pe-0">
-          <button class="btn text-danger fw-bold bg-transparent border-0 p-0" onclick="removeFromCart('${item.name}')">X</button>
+        <td class="text-end fw-bold text-dark text-nowrap py-3">
+          ${itemTotal} EGP
+        </td>
+        <td class="text-end pe-0 py-3">
+          <button class="btn text-danger fw-bold bg-transparent border-0 p-0 fs-5" style="line-height: 1;" onclick="removeFromCartById(${item.id})">&times;</button>
         </td>
       </tr>
     `;
@@ -161,22 +152,22 @@ document.getElementById("confirmBtn")?.addEventListener("click", function() {
     cartWarning.classList.add("d-none");
   }
 
-  if (userSelect.value === "") {
-    userWarning.classList.remove("d-none");
-    userSelect.classList.add("border-danger");
+  if (!userSelect || userSelect.value === "") {
+    userWarning?.classList.remove("d-none");
+    userSelect?.classList.add("border-danger");
     hasError = true;
   } else {
-    userWarning.classList.add("d-none");
-    userSelect.classList.remove("border-danger");
+    userWarning?.classList.add("d-none");
+    userSelect?.classList.remove("border-danger");
   }
 
-  if (roomSelect.value === "") {
-    roomWarning.classList.remove("d-none");
-    roomSelect.classList.add("border-danger");
+  if (!roomSelect || roomSelect.value === "") {
+    roomWarning?.classList.remove("d-none");
+    roomSelect?.classList.add("border-danger");
     hasError = true;
   } else {
-    roomWarning.classList.add("d-none");
-    roomSelect.classList.remove("border-danger");
+    roomWarning?.classList.add("d-none");
+    roomSelect?.classList.remove("border-danger");
   }
 
   if (hasError) return;
