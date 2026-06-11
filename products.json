@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "name": "Americano",
+    "price": 25,
+    "image": "../images/Americano_iced_coffee_in_a_202605292104.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Berry Mojito",
+    "price": 35,
+    "image": "../images/Berry_mojito_drink_in_a_202605292106.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Caramel Macchiato",
+    "price": 40,
+    "image": "../images/Caramel_macchiato_iced_drink,_isolated_202605292102.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Chocolate Frappe",
+    "price": 43,
+    "image": "../images/Chocolate_frappe_with_whipped_cream_202605292107.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Hot Coffee",
+    "price": 18,
+    "image": "../images/A_steaming_cup_of_hot_202605292152.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Hot Tea",
+    "price": 15,
+    "image": "../images/An_elegant_cup_of_hot_202605292152.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Espresso",
+    "price": 22,
+    "image": "../images/Espresso_drink_product_photo,_isolated_202605292046 (1).jpg"
+  },
+  {
+    "id": 8,
+    "name": "Flat White",
+    "price": 32,
+    "image": "../images/Flat_white_coffee_drink,_transparent_202605292103 (1).jpg"
+  },
+  {
+    "id": 9,
+    "name": "Guava Juice",
+    "price": 30,
+    "image": "../images/Guava_juice_drink_in_a_202605292053.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Hazelnut Latte",
+    "price": 38,
+    "image": "../images/Hazelnut_latte_iced_coffee,_transparent_202605292102.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Lemon Mint",
+    "price": 32,
+    "image": "../images/Iced_lemon_mint_drink_in_202605292100.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Matcha Latte",
+    "price": 45,
+    "image": "../images/Iced_matcha_latte_in_a_202605292106.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Lotus Milkshake",
+    "price": 48,
+    "image": "../images/Lotus_milkshake_in_an_elegant_202605292107.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Mango Juice",
+    "price": 32,
+    "image": "../images/Mango_juice_in_an_elegant_202605292052.jpg"
+  },
+  
+  {
+    "id": 15,
+    "name": "Passion Fruit Mojito",
+    "price": 37,
+    "image": "../images/Passion_fruit_mojito_in_elegant_202605292106.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Strawberry Juice",
+    "price": 33,
+    "image": "../images/Strawberry_juice_drink_in_a_202605292053.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Water",
+    "price": 10,
+    "image": "../images/A_clear_water_glass_with_202605292200.jpeg"
+  },
+  {
+    "id": 18,
+    "name": "Cola",
+    "price": 20,
+    "image": "../images/A_glass_of_cola_with_202605292145.jpg"
+  }
+]
